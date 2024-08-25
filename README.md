@@ -49,7 +49,7 @@
 - claim điểm invite
 - nhận diện proxy tự động, tự động kết nối lại proxy khi bị lỗi. ae ai chạy proxy thì thêm vào file proxy.txt ở dòng ứng với dòng chứa acc muốn chạy proxy đó, acc nào không muốn chạy proxy thì để trống hoặc gõ skip vào
 - đa luồng chạy bao nhiêu acc cũng được, không bị block lẫn nhau
-- Mặc định ở vòng lặp đầu tiên mỗi tài khoản sẽ chạy cách nhau 30s để tránh spam request, có thể tìm biến `DELAY_ACC = 6` trong file [index.js](src/run/index.js) để điều chỉnh
+- Mặc định ở vòng lặp đầu tiên mỗi tài khoản sẽ chạy cách nhau 30s để tránh spam request, có thể tìm biến `DELAY_ACC = 30` trong file [index.js](src/run/index.js) để điều chỉnh
 
 ## 🔄 Lịch sử cập nhật
 
