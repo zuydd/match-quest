@@ -52,8 +52,13 @@
 
 ## 🔄 Lịch sử cập nhật
 
-> Phiên bản mới nhất: `v0.0.1`
+> Phiên bản mới nhất: `v0.0.2`
 
+<details>
+<summary>v0.0.2 - 📅 25/08/2024</summary>
+  
+- Thêm sẵn thư mục data
+</details>
 <details>
 <summary>v0.0.1 - 📅 25/08/2024</summary>
   
