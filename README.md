@@ -53,8 +53,13 @@
 
 ## 🔄 Lịch sử cập nhật
 
-> Phiên bản mới nhất: `v0.0.2`
+> Phiên bản mới nhất: `v0.0.3`
 
+<details>
+<summary>v0.0.3 - 📅 26/08/2024</summary>
+  
+- Fix lỗi crash tool khi chơi game bị lỗi
+</details>
 <details>
 <summary>v0.0.2 - 📅 25/08/2024</summary>
   
