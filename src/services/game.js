@@ -105,9 +105,11 @@ class GameService {
     let gameCount = infoGame?.game_count || 0;
     while (gameCount > 0) {
       const game = await this.playGame(user);
-      await delayHelper.delay(32);
-      await this.claimGame(user, game.game_id);
-      gameCount--;
+      if (game) {
+        await delayHelper.delay(32);
+        await this.claimGame(user, game?.game_id);
+        gameCount--;
+      }
     }
     if (infoGame?.game_count > 0)
       user.log.log(colors.magenta("Đã dùng hết lượt chơi game"));
