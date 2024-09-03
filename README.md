@@ -53,8 +53,14 @@
 
 ## 🔄 Lịch sử cập nhật
 
-> Phiên bản mới nhất: `v0.0.3`
+> Phiên bản mới nhất: `v0.0.4`
 
+<details>
+<summary>v0.0.4 - 📅 03/09/2024</summary>
+  
+- Cập nhật lại hiển thị đúng số điểm claim reward khi dùng boost x2, x3
+- Làm thêm các nhiệm vụ Matchain Ecosystem
+</details>
 <details>
 <summary>v0.0.3 - 📅 26/08/2024</summary>
   
