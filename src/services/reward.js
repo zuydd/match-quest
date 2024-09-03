@@ -42,14 +42,14 @@ class RewardClass {
     }
   }
 
-  async rewardClaim(user) {
+  async rewardClaim(user, reward) {
     const body = { uid: user.info.id };
     try {
       const { data } = await user.http.post("point/reward/claim", body);
       if (data.code === 200 && data.data) {
         user.log.logSuccess(
           `Claim reward thành công, phần thưởng: ${colors.yellow(
-            Math.round(data.data / 1000) + " 🔥"
+            Math.round(reward / 1000) + " 🔥"
           )}`
         );
         return true;
@@ -93,7 +93,7 @@ class RewardClass {
         "minute"
       );
       if (diffTimeClaim > 0) {
-        const statusClaim = await this.rewardClaim(user);
+        const statusClaim = await this.rewardClaim(user, infoReward?.reward);
         if (statusClaim) {
           await this.rewardFarming(user);
           return 480;
