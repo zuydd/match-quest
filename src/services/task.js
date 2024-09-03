@@ -1,4 +1,5 @@
 import colors from "colors";
+import delayHelper from "../helpers/delay.js";
 
 class TaskService {
   constructor() {}
@@ -11,9 +12,8 @@ class TaskService {
     try {
       const { data } = await user.http.post("point/task/list", body);
       if (data.code === 200 && data.data) {
-        const tasks = data.data["Tasks"] || [];
-        const extraTasks = data.data["Extra Tasks"] || [];
-        return [...tasks, ...extraTasks].filter(
+        const tasks = Object.values(data.data).flat();
+        return tasks.filter(
           (task) => !skipTasks.includes(task.name) && !task.complete
         );
       } else {
@@ -78,6 +78,7 @@ class TaskService {
         complete = await this.completeTask(user, task);
       }
       if (complete) {
+        await delayHelper.delay(3);
         await this.claimTask(user, task);
       }
     }
