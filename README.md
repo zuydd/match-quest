@@ -53,8 +53,14 @@
 
 ## 🔄 Lịch sử cập nhật
 
-> Phiên bản mới nhất: `v0.0.4`
+> Phiên bản mới nhất: `v0.0.5`
 
+<details>
+<summary>v0.0.5 - 📅 05/09/2024</summary>
+  
+- Fix lỗi SSL server (bản tạm thời)
+- Lưu ý: cần chạy lại lệnh `npm install`
+</details>
 <details>
 <summary>v0.0.4 - 📅 03/09/2024</summary>
   
