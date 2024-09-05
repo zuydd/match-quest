@@ -1,9 +1,10 @@
 import axios from "axios";
-import { HttpsProxyAgent } from "https-proxy-agent";
+import https from "https";
+import HttpsProxyAgent from 'https-proxy-agent';
 
 export class HttpService {
   constructor(log, proxy = null) {
-    this.baseURL = "http://tgapp-api.matchain.io/api/tgapp/v1/";
+    this.baseURL = "https://tgapp-api.matchain.io/api/tgapp/v1/";
     this.proxy = proxy;
     this.log = log;
     this.token = null;
@@ -37,9 +38,14 @@ export class HttpService {
     }
     const config = {
       headers,
+      httpsAgent: new https.Agent({  
+        rejectUnauthorized: false, // Bỏ qua xác minh chứng chỉ
+      }),
     };
     if (this.proxy && this.proxy !== "skip") {
-      config["httpsAgent"] = new HttpsProxyAgent(this.proxy);
+      config["agent"] = new HttpsProxyAgent(this.proxy, {  
+        rejectUnauthorized: false, // Bỏ qua xác minh chứng chỉ
+      });
     }
     return config;
   }
@@ -53,6 +59,8 @@ export class HttpService {
   post(endPoint, body) {
     const url = this.baseURL + endPoint;
     const config = this.initConfig();
+    // console.log(config);
+    
     return axios.post(url, body, config);
   }
 
