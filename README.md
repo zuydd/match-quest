@@ -53,8 +53,14 @@
 
 ## 🔄 Lịch sử cập nhật
 
-> Phiên bản mới nhất: `v0.0.5`
+> Phiên bản mới nhất: `v0.0.6`
 
+<details>
+<summary>v0.0.6 - 📅 05/09/2024</summary>
+  
+- Fix lỗi SSL server (bản ổn định, đã nhận proxy)
+- Lưu ý: cần chạy lại lệnh `npm install` trước khi start tool
+</details>
 <details>
 <summary>v0.0.5 - 📅 05/09/2024</summary>
   
@@ -82,6 +88,8 @@
   
 - Chia sẽ tool đến cộng đồng
 </details>
+
+> Khi cập nhập phiên bản mới chỉ cần copy các file trong folder data qua bản mới là có thể sử dụng mà không cần lấy lại dữ liệu
 
 ## 🎁 Donate
 
