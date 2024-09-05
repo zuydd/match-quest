@@ -16,7 +16,7 @@
     "colors": "^1.4.0",
     "dayjs": "^1.11.12",
     "he": "^1.2.0",
-    "https-proxy-agent": "5.0.1",
+    "https-proxy-agent": "^7.0.5",
     "inquirer": "^10.1.8",
     "ws": "^8.18.0",
     "yargs": "^17.7.2"

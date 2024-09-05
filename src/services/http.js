@@ -1,6 +1,7 @@
 import axios from "axios";
 import https from "https";
-import HttpsProxyAgent from 'https-proxy-agent';
+import { HttpsProxyAgent } from "https-proxy-agent";
+import {ProxyAgent} from '../services/proxy.js'
 
 export class HttpService {
   constructor(log, proxy = null) {
@@ -36,17 +37,19 @@ export class HttpService {
     if (this.token) {
       headers["Authorization"] = `${this.token}`;
     }
+    const agent = new https.Agent({
+      rejectUnauthorized: false, // Bỏ qua xác minh chứng chỉ
+    });
+
     const config = {
       headers,
-      httpsAgent: new https.Agent({  
-        rejectUnauthorized: false, // Bỏ qua xác minh chứng chỉ
-      }),
+      httpsAgent: agent
     };
+
     if (this.proxy && this.proxy !== "skip") {
-      config["agent"] = new HttpsProxyAgent(this.proxy, {  
-        rejectUnauthorized: false, // Bỏ qua xác minh chứng chỉ
-      });
+      config["httpsAgent"] = new ProxyAgent(this.proxy, {rejectUnauthorized: false});
     }
+    
     return config;
   }
 
@@ -59,8 +62,6 @@ export class HttpService {
   post(endPoint, body) {
     const url = this.baseURL + endPoint;
     const config = this.initConfig();
-    // console.log(config);
-    
     return axios.post(url, body, config);
   }
 
