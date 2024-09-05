@@ -3,7 +3,7 @@ import { HttpsProxyAgent } from "https-proxy-agent";
 
 export class HttpService {
   constructor(log, proxy = null) {
-    this.baseURL = "https://tgapp-api.matchain.io/api/tgapp/v1/";
+    this.baseURL = "http://tgapp-api.matchain.io/api/tgapp/v1/";
     this.proxy = proxy;
     this.log = log;
     this.token = null;
