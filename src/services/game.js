@@ -101,8 +101,8 @@ class GameService {
     }
     const infoGame = await this.getInfoGame(user);
     if (!infoGame) return;
-    user.log.log(`Còn ${colors.blue(infoGame.game_count + " lượt")} chơi game`);
-    let gameCount = infoGame?.game_count || 0;
+    let gameCount = infoGame?.invited_count + infoGame?.daily_count || 0;
+    user.log.log(`Còn ${colors.blue(gameCount + " lượt")} chơi game`);
     while (gameCount > 0) {
       const game = await this.playGame(user);
       if (game) {
