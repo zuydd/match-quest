@@ -75,7 +75,7 @@ class GameService {
   }
 
   async claimGame(user, gameId) {
-    const point = generatorHelper.randomInt(110, 150);
+    const point = generatorHelper.randomInt(180, 230);
     const body = { game_id: gameId, point };
     try {
       const { data } = await user.http.post("game/claim", body);
@@ -99,9 +99,10 @@ class GameService {
     if (boostGame && boostGame?.current_count < boostGame?.task_count) {
       await this.purchaseGame(user);
     }
+    await delayHelper.delay(3);
     const infoGame = await this.getInfoGame(user);
     if (!infoGame) return;
-    let gameCount = infoGame?.invited_count + infoGame?.daily_count || 0;
+    let gameCount = infoGame?.game_count || 0;
     user.log.log(`Còn ${colors.blue(gameCount + " lượt")} chơi game`);
     while (gameCount > 0) {
       const game = await this.playGame(user);

@@ -64,8 +64,15 @@
 
 > Khi cập nhật phiên bản mới chỉ cần copy thư mục 📁 [data](src/data) của bản cũ ghi đè lại ở bản mới là có thể chạy được mà không cần lấy lại data
 
-> Phiên bản mới nhất: `v0.0.7`
+> Phiên bản mới nhất: `v0.0.8`
 
+<details>
+<summary>v0.0.8 - 📅 10/09/2024</summary>
+  
+- Fix lỗi không mua thêm 3 vé chơi game khi qua ngày mới
+- Tăng số điểm nhận được khi chới game từ random 110-150 thành 180-230 cho nó màu, ai sợ thì vô đổi lại nhé (game cho max 250)
+- Fix lỗi không thể tạo tài khoản vì mã ref của mình đạt cmn nó giới hạn 5000 ref rồi nó không cho nhận thêm ref nữa 🤣🤣
+</details>
 <details>
 <summary>v0.0.7 - 📅 08/09/2024</summary>
   
