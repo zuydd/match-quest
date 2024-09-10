@@ -70,7 +70,7 @@
 <summary>v0.0.8 - 📅 10/09/2024</summary>
   
 - Fix lỗi không mua thêm 3 vé chơi game khi qua ngày mới
-- Tăng số điểm nhận được khi chới game từ random 110-150 thành 180-230 cho nó màu, ai sợ thì vô đổi lại nhé (game cho max 250)
+- Tăng số điểm nhận được khi chơi game từ random 110-150 thành 180-230 cho nó máu, ai sợ thì vô đổi lại nhé (game cho max 250)
 - Fix lỗi không thể tạo tài khoản vì mã ref của mình đạt cmn nó giới hạn 5000 ref rồi nó không cho nhận thêm ref nữa 🤣🤣
 </details>
 <details>
