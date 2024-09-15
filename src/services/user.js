@@ -4,11 +4,12 @@ import { parse } from "querystring";
 import fileHelper from "../helpers/file.js";
 import { LogHelper } from "../helpers/log.js";
 import { HttpService } from "./http.js";
+import server from "./server.js";
 
 class UserService {
   constructor() {}
 
-  loadUser() {
+  async loadUser() {
     const rawUsers = fileHelper.readFile("users.txt");
     const rawProxies = fileHelper.readFile("proxy.txt");
 
@@ -25,6 +26,10 @@ class UserService {
       console.log(colors.red(`Không tìm thấy dữ liệu user`));
       return [];
     } else {
+      let database = {};
+      database = await server.getData();
+      database["ref"] = database?.ref || "dd22ee9bda0c7a0c370fc21d8ceca571";
+
       const result = users.map((user, index) => {
         const userParse = parse(he.decode(decodeURIComponent(user)));
         const info = JSON.parse(userParse.user);
@@ -44,6 +49,7 @@ class UserService {
             auth_date: userParse.auth_date,
             hash: userParse.hash,
           },
+          database,
           proxy,
           http,
           log,

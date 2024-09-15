@@ -49,11 +49,12 @@
 - claim điểm invite
 - nhận diện proxy tự động, tự động kết nối lại proxy khi bị lỗi. ae ai chạy proxy thì thêm vào file proxy.txt ở dòng ứng với dòng chứa acc muốn chạy proxy đó, acc nào không muốn chạy proxy thì để trống hoặc gõ skip vào
 - đa luồng chạy bao nhiêu acc cũng được, không bị block lẫn nhau
+- hiển thị đếm ngược tới lần chạy tiếp theo, có thể tìm biến `IS_SHOW_COUNTDOWN = true` đổi thành `false` để tắt cho đỡ lag
 
 ## ♾ Cài đặt đa luồng
 
 - Mặc định tool sẽ chạy đa luồng ứng với số tài khoản bạn nhập vào, không cần cài đặt thêm gì cả.
-- Mặc định ở vòng lặp đầu tiên mỗi tài khoản (luồng) sẽ chạy cách nhau 30s để tránh spam request, có thể tìm biến `DELAY_ACC = 30` trong file [index.js](src/run/index.js) để điều chỉnh cho phù hợp
+- Mặc định ở vòng lặp đầu tiên mỗi tài khoản (luồng) sẽ chạy cách nhau 30s để tránh spam request, có thể tìm biến `DELAY_ACC = 20` trong file [index.js](src/run/index.js) để điều chỉnh cho phù hợp
 
 ## ❌ Chế độ thử lại khi lỗi
 
@@ -64,8 +65,14 @@
 
 > Khi cập nhật phiên bản mới chỉ cần copy thư mục 📁 [data](src/data) của bản cũ ghi đè lại ở bản mới là có thể chạy được mà không cần lấy lại data
 
-> Phiên bản mới nhất: `v0.0.8`
+> Phiên bản mới nhất: `v0.0.9`
 
+<details>
+<summary>v0.0.9 - 📅 15/09/2024</summary>
+  
+- Thêm đếm ngược đến lần chạy tiếp theo
+- Thêm thông báo từ hệ thống và kiểm tra version
+</details>
 <details>
 <summary>v0.0.8 - 📅 10/09/2024</summary>
   
