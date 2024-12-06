@@ -72,6 +72,7 @@
   
 - Bỏ chơi game
 - Bỏ trả lời Quiz
+- Fix lỗi làm nhiệm vụ
 </details>
 <details>
 <summary>v0.0.9 - 📅 15/09/2024</summary>

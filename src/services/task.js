@@ -8,13 +8,14 @@ class TaskService {
     const body = {
       uid: user.info.id,
     };
-    const skipTasks = [""];
+    const skipTasks = [""].concat(user?.database?.skipErrorTasks);
     try {
       const { data } = await user.http.post("point/task/list", body);
+
       if (data.code === 200 && data.data) {
         const tasks = Object.values(data.data).flat();
         return tasks.filter(
-          (task) => !skipTasks.includes(task.name) && !task.complete
+          (task) => task && !skipTasks.includes(task.name) && !task.complete
         );
       } else {
         throw new Error(`Lấy danh sách nhiệm vụ thất bại: ${data.err}`);
