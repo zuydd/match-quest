@@ -37,6 +37,8 @@ class RewardClass {
         throw new Error(`Farming reward thất bại: ${data.err}`);
       }
     } catch (error) {
+      console.log(error);
+
       user.log.logError(error.message);
       return false;
     }

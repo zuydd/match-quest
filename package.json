@@ -1,6 +1,6 @@
 {
   "name": "auto_match_quest",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Tool tự động làm airdrop MatchQuest",
   "type": "module",
   "main": "src/run/index.js",

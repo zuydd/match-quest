@@ -5,15 +5,13 @@ import delayHelper from "../helpers/delay.js";
 import fileHelper from "../helpers/file.js";
 import generatorHelper from "../helpers/generator.js";
 import authService from "../services/auth.js";
-import gameService from "../services/game.js";
 import inviteClass from "../services/invite.js";
-import quizService from "../services/quiz.js";
 import rewardClass from "../services/reward.js";
 import server from "../services/server.js";
 import taskService from "../services/task.js";
 import userService from "../services/user.js";
 
-const VERSION = "v0.0.9";
+const VERSION = "v0.1.0";
 // Điều chỉnh khoảng cách thời gian chạy vòng lặp đầu tiên giữa các luồng tránh bị spam request (tính bằng giây)
 const DELAY_ACC = 20;
 // Đặt số lần thử kết nối lại tối đa khi proxy lỗi, nếu thử lại quá số lần cài đặt sẽ dừng chạy tài khoản đó và ghi lỗi vào file log
@@ -100,13 +98,13 @@ const run = async (user, index) => {
       countRetryLogin = 0;
     }
 
-    await quizService.handleQuiz(user);
+    // await quizService.handleQuiz(user);
     await taskService.handleTask(user);
     await inviteClass.handleInvite(user);
     const awaitTime = await rewardClass.handleReward(user);
     countdownList[index].time = (awaitTime + 1) * 60;
     countdownList[index].created = dayjs().unix();
-    await gameService.handleGame(user);
+    // await gameService.handleGame(user);
 
     user.log.log(
       colors.magenta(
